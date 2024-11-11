@@ -1,3 +1,5 @@
+import { lazy } from "react";
+
 type AppProps = {
   message: string;
 };
@@ -11,12 +13,24 @@ enum Color {
 }
 const c: Color = Color.Green;
 
+//lazy
+const Button: React.LazyExoticComponent<
+  React.ComponentType<{ children: string }>
+> = lazy(() => import("./components/Button"));
+
 function App({ message }: AppProps) {
   console.log(list);
   console.log(list2);
   console.log(x);
   console.log(c);
-  return <div>{message}</div>;
+  return (
+    <div>
+      {message}
+      <div>
+        <Button>Click me</Button>
+      </div>
+    </div>
+  );
 }
 
 export default App;

@@ -5,6 +5,8 @@ type ButtonProps = {
   disabled?: boolean;
 };
 
-export const Button = ({ children, disabled = false }: ButtonProps) => {
+const Button = ({ children, disabled = false }: ButtonProps) => {
   return <button disabled={disabled}>{children}</button>;
 };
+
+export default Button;
